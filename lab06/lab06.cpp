@@ -40,15 +40,30 @@
 using namespace std;
 
 class Calculator {
-public :
-	int x, int y;
-	Calculator() : x(0), y(0) {}
-	int addupnumbers();
+public:
+    int x, y;
+    Calculator() : x(0), y(0) {}
+    void addupnumbers(int y);
+    int getsum();
 };
 
-int Calculator::addupnumbers(int y) {
-	x = x + y;
-	return x;
+void Calculator::addupnumbers(int y) {
+    x = x + y;
 }
-
-int main
+int Calculator::getsum() {
+    return x;
+}
+int main() {
+    Calculator c1;
+    int y;
+    cout << "*****Static Variables*****" << endl;
+    cout << "Please enter 5 numbers to be summed" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Enter a number: ";
+        cin >> y;
+        c1.addupnumbers(y);
+        cout << "The current total is " << c1.getsum() << endl;
+    }
+    cout << "Program completed" << endl;
+    return 0;
+}
